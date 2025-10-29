@@ -19,7 +19,7 @@ GetOptions('help|h'    => \$help,
 ) || pod2usage(2);
 
 pod2usage(1) if $help;
-pod2usage(-verbose => 2) if $verbose;
+pod2usage(-verbose => 2, -output => *STDOUT) if $verbose;
 
 my $dbh = connectOnce({
   Database   => $ENV{APP_DB_DATABASE},
