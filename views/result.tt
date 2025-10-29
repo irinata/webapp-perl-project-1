@@ -1,0 +1,30 @@
+<div class="container">
+  <p><a href="/">Вернуться на главную</a></p>
+  <table class="result-table" border="1">
+    <caption class="result-table-caption">
+      Результат для <% address %>
+      <% IF exceedsLimit %> <span class="alert">(вывод ограничен <% limit %> записями)</span><% END %>
+      <% IF log.size == 0 %> <span class="alert">(записей не найдено)</span><% END %>
+    </caption>
+    <thead>
+      <tr>
+      <% FOREACH key IN log.0.keys.sort %>
+        <th>
+            <% key | ucfirst %>
+        </th>
+      <% END %>
+      </tr>
+    </thead>
+    <tbody class="result-table-tbody">
+    <% FOREACH info IN log %>
+      <tr>
+      <% FOREACH key IN log.0.keys.sort %>
+        <td>
+          <% info.$key %>
+        </td>
+      <% END %>
+      </tr>
+    <% END %>
+    </tbody>
+  </table>
+</div>

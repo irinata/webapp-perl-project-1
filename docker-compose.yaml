@@ -1,0 +1,24 @@
+services:
+  postgres:
+    image: postgres:15-bookworm
+    env_file:
+      - .env
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/config.sql:/docker-entrypoint-initdb.d/config.sql
+    restart: unless-stopped
+
+  app:
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: ["plackup", "bin/app.psgi"]
+volumes:
+  postgres_data:

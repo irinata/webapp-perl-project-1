@@ -1,0 +1,5 @@
+severity = 4
+theme = core + pbp
+color = 1
+verbose = 8
+include = More

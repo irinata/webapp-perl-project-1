@@ -1,0 +1,9 @@
+CREATE DATABASE testdb;
+
+CREATE USER test WITH PASSWORD 'test';
+
+GRANT ALL PRIVILEGES ON DATABASE testdb TO test;
+
+\c testdb;
+
+GRANT USAGE, CREATE ON SCHEMA public TO test;

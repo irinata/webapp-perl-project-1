@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Тестовое задание</h1>
+
+  <form id="email-form" action="/process" method="POST">
+    <div class="form">
+      <label for="email-input">Введите адрес получателя:</label>
+      <div id="email-error"></div>
+      <input
+        type="text"
+        id="email-input"
+        name="email-input"
+        maxlength="254"
+        placeholder="your@email.ru"
+        style="width: 300px;">
+    </div>
+    <button type="submit" class="btn">Отправить</button>
+  </form>
+
+  <script>
+    document.getElementById('email-form').addEventListener('submit', function(e) {
+      const emailInput = document.getElementById('email-input');
+      const email = emailInput.value.trim();
+      const emailRegex = /^[\w.%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      if (!emailRegex.test(email)) {
+        e.preventDefault();
+        const errorDiv = document.getElementById('email-error');
+        errorDiv.textContent = '❌ Неверный email';
+        errorDiv.style.display = 'block';
+        errorDiv.style.width = '296px';
+        emailInput.focus();
+      }
+    });
+  </script>
+
+</div>

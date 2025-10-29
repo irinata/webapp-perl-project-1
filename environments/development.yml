@@ -1,0 +1,6 @@
+auto_page: 1
+logger: "console"
+log: "core"
+show_errors: 1
+startup_info: 1
+warnings: 1
