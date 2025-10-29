@@ -31,3 +31,9 @@ cat maillog | docker exec -i <имя_контейнера> /app/parser.pl
 docker ps
 ```
 Оно будет примерно таким: _webapp-perl-project-1-app-1_.
+
+### Остановка и удаление контейнера
+Следующая команда остановит и удалит контейнер, образы и данные (volumes), созданные в рамках compose-файла
+```bash
+docker-compose down -v --rmi all
+```
