@@ -1,3 +1,4 @@
+# normally it should be git ignored
 APP_DB_USER=test
 APP_DB_PASSWORD=test
 APP_DB_DATABASE=testdb
